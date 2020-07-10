@@ -1,0 +1,11 @@
+<h1> this is edit page </h1>
+
+<p> ========= Edit it! ============== </p>
+<div class="container">
+    <form action="{% url 'edit' myposting.id %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value={{myposting.title}} />
+        <input type="text" name="contents" value={{myposting.contents}} />
+        <input type="submit" value="save" />
+    </form>
+</div>

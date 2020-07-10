@@ -3,6 +3,9 @@
 <p> ========= below my posting selected by id ============== </p>
 <div class="container">
     <h1> {{myposting.title}} </h1>
+
+    <a href="{% url 'edit' myposting.id %}"> <p> edit </p> </a>
+
     <p> {{myposting.date}} </p>
     <p> {{myposting.contents}} </p>
 

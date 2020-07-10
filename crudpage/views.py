@@ -37,3 +37,21 @@ def delete(request, id):
         return redirect('/')
     else:
         return redirect('/')
+
+def edit(request, id):
+    if request.method == "POST":
+        myposting = Posting.objects.get(id=id)
+        
+        newtitle = request.POST['title']
+        newcontents = request.POST['contents']
+
+        myposting.title = newtitle
+        myposting.contents = newcontents
+        myposting.save()
+
+        return redirect('../')
+    else:
+        myposting = Posting.objects.get(id=id)
+        return render(request, 'edit.html', {
+            'myposting' : myposting
+        })
