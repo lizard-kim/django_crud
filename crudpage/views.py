@@ -23,4 +23,10 @@ def create(request):
         # http 통신 중 get을 호출하면 그냥 페이지가 나온다
         return render(request, 'create.html')
 
+def detail(request, id):
+    myposting = Posting.objects.get(id=id)
+
+    return render(request, 'detail.html', {
+        'myposting' : myposting
+    })
     
