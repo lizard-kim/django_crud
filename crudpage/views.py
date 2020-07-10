@@ -29,4 +29,11 @@ def detail(request, id):
     return render(request, 'detail.html', {
         'myposting' : myposting
     })
-    
+
+def delete(request, id):
+    if request.method == "POST":
+        myposting = Posting.objects.get(id=id)
+        myposting.delete()
+        return redirect('/')
+    else:
+        return redirect('/')
