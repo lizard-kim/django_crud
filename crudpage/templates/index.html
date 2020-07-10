@@ -5,5 +5,22 @@
 </head>
 <body>
     <h1> CRDU PROJECT </h1>
+    
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value=""/>
+        <textarea name="contents" valut="" rows="4" cols="40"></textarea>
+        <input type="submit"/>
+    </form>
+
+    <div class="container">
+        <p> ======= below posting ======= </p>
+        {% for elem in posting %}
+            <h1> {{elem.title}} </h1>
+            <p> {{elem.date}} </p>
+            <p> {{elem.contents}} </p>
+        {% endfor %}
+    </div>
+
 </body>
 </html>
